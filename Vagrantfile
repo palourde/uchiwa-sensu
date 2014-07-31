@@ -15,6 +15,8 @@ Vagrant.configure("2") do |gconfig|
     config.vm.network :forwarded_port, guest: 8080, host: 8088
     config.vm.network :forwarded_port, guest: 4567, host: 8888
 
+    config.vm.provision "shell", inline: "sudo /etc/init.d/sensu-api restart && sudo /etc/init.d/sensu-client restart"
+
     config.vm.provision :chef_solo do |chef|
       chef.log_level = :debug
       chef.data_bags_path = 'data_bags'
@@ -56,6 +58,8 @@ Vagrant.configure("2") do |gconfig|
 
     config.vm.network :forwarded_port, guest: 8080, host: 8089
     config.vm.network :forwarded_port, guest: 4567, host: 8889
+
+    config.vm.provision "shell", inline: "sudo /etc/init.d/sensu-api restart && sudo /etc/init.d/sensu-client restart"
 
     config.vm.provision :chef_solo do |chef|
       chef.log_level = :debug
