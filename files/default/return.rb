@@ -14,6 +14,8 @@ class CheckReturn < Sensu::Plugin::Check::CLI
       ok "Success"
     elsif config[:code] == "1"
       warning "Warning"
+    elsif config[:code] == "3"
+      unknown "Unknown"
     else
       critical "Error"
     end
