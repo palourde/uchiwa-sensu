@@ -25,6 +25,9 @@ rpm_package "#{Chef::Config[:file_cache_path]}/sensu-0.13.0-1.x86_64.rpm" do
   action :install
   only_if { node['sensu']['version'] == "0.13.0-1" }
 end
+template "#{node['sensu']['directory']}/conf.d/api.json" do
+  only_if { node['sensu']['version'] == "0.13.0-1" }
+end
 
 include_recipe "sensu::rabbitmq"
 include_recipe "sensu::default"
