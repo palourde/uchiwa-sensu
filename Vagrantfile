@@ -4,8 +4,6 @@ Vagrant.configure("2") do |gconfig|
     config.vm.hostname = "server-0-12-6"
     config.vm.box = "centos65"
     config.vm.network :private_network, ip: "10.20.30.40"
-    config.vm.network :public_network
-    config.berkshelf.enabled = true
     config.omnibus.chef_version = :latest
 
     config.vm.provider :virtualbox do |vb|
@@ -48,8 +46,6 @@ Vagrant.configure("2") do |gconfig|
     config.vm.hostname = "server-0-13-0"
     config.vm.box = "centos65"
     config.vm.network :private_network, ip: "10.20.30.41"
-    config.vm.network :public_network
-    config.berkshelf.enabled = true
     config.omnibus.chef_version = :latest
 
     config.vm.provider :virtualbox do |vb|
