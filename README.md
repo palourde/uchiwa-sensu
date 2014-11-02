@@ -36,6 +36,33 @@ Installs mock checks for e2e testing
 
 Install mock plugin for e2e testing
 
+# Uchiwa config.json
+```
+{
+  "sensu": [
+    {
+      "name": "0.12.6",
+      "host": "10.20.30.40",
+      "port": 4567,
+      "timeout": 5
+    },
+    {
+      "name": "0.16.0",
+      "host": "10.20.30.41",
+      "port": 4567,
+      "timeout": 5,
+      "user": "admin",
+      "pass": "secret"
+    }
+  ],
+  "uchiwa": {
+    "host": "0.0.0.0",
+    "port": 3000,
+    "refresh": 5
+  }
+}
+```
+
 # Author
 
 Author:: Simon Plourde (<simon.plourde@gmail.com>)
