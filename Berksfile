@@ -2,5 +2,6 @@ site :opscode
 
 metadata
 
-cookbook 'sensu', git: 'https://github.com/sensu/sensu-chef'
+cookbook 'sensu', '= 2.0.0', git: 'https://github.com/sensu/sensu-chef'
 cookbook 'redisio', '= 1.7.1'
+cookbook 'rabbitmq', '= 3.3.0'

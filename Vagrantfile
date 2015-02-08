@@ -4,7 +4,7 @@ Vagrant.configure("2") do |gconfig|
     config.vm.hostname = "server-0-12-6"
     config.vm.box = "opscode-centos-6.5"
     config.vm.network :private_network, ip: "10.20.30.40"
-    config.omnibus.chef_version = :latest
+    config.omnibus.chef_version = "11.4.0"
 
     config.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
@@ -43,7 +43,7 @@ Vagrant.configure("2") do |gconfig|
     config.vm.hostname = "server-0-16-0"
     config.vm.box = "opscode-centos-6.5"
     config.vm.network :private_network, ip: "10.20.30.41"
-    config.omnibus.chef_version = :latest
+    config.omnibus.chef_version = "11.4.0"
 
     config.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
