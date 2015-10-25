@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: uchiwa-sensu
-# Recipe:: server
+# Recipe:: enterprise
 #
 # Copyright (C) 2015 Simon Plourde
 #
@@ -17,12 +17,22 @@
 # limitations under the License.
 #
 #
+include_recipe 'sensu'
 
-include_recipe "sensu::rabbitmq"
-include_recipe "sensu::default"
-include_recipe "sensu::redis"
-include_recipe "sensu::server_service"
-include_recipe "sensu::api_service"
+cookbook_file "#{Chef::Config[:file_cache_path]}/sensu-enterprise-#{node['sensu']['enterprise']['version']}.noarch.rpm"
 
-include_recipe "uchiwa-sensu::plugins"
-include_recipe "uchiwa-sensu::checks"
+package 'sensu-enterprise' do
+  source "#{Chef::Config[:file_cache_path]}/sensu-enterprise-#{node['sensu']['enterprise']['version']}.noarch.rpm"
+end
+
+template "/etc/default/sensu-enterprise" do
+  cookbook 'sensu'
+  source "sensu-enterprise.default.erb"
+end
+
+include_recipe 'sensu::rabbitmq'
+include_recipe 'sensu::redis'
+include_recipe 'sensu::enterprise_service'
+
+include_recipe 'uchiwa-sensu::plugins'
+include_recipe 'uchiwa-sensu::checks'
