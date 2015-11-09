@@ -81,7 +81,7 @@ suites:
     attributes:
       sensu:
         enterprise:
-          version: "1.7.1-1"
+          version: "1.7.2-1"
         rabbitmq:
           host: "127.0.0.1"
         api:
