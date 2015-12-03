@@ -36,7 +36,7 @@ suites:
     driver:
       network:
         - ["forwarded_port", {guest: 4567, host: 4568}]
-        - ["forwarded_port", {guest: 5671, host: 5671}]
+        - ["forwarded_port", {guest: 6379, host: 6379}]
     run_list:
       - recipe[uchiwa-sensu::server]
       - recipe[uchiwa-sensu::client]
@@ -64,7 +64,8 @@ suites:
       sensu:
         version: "0.20.6-1"
         use_embedded_ruby: true
-        rabbitmq:
+        yum_repo_url: "http://repositories.sensuapp.org"
+        redis:
           host: "10.73.0.10"
         api:
           host: "0.0.0.0"
