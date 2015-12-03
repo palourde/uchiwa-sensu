@@ -32,7 +32,7 @@ suites:
       yum:
         erlang_solutions:
           baseurl: "http://packages.erlang-solutions.com/rpm/centos/6/$basearch"
-  - name: 0.20.6
+  - name: 0.21.0
     driver:
       network:
         - ["forwarded_port", {guest: 4567, host: 4568}]
@@ -42,7 +42,7 @@ suites:
       - recipe[uchiwa-sensu::client]
     attributes:
       sensu:
-        version: "0.20.6-1"
+        version: "0.21.0-2"
         use_embedded_ruby: true
         rabbitmq:
           host: "127.0.0.1"
@@ -53,7 +53,7 @@ suites:
       yum:
         erlang_solutions:
           baseurl: "http://packages.erlang-solutions.com/rpm/centos/6/$basearch"
-  - name: 0.20.6-bis
+  - name: 0.21.0-bis
     driver:
       network:
         - ["forwarded_port", {guest: 4567, host: 4569}]
@@ -62,7 +62,7 @@ suites:
       - recipe[sensu::api_service]
     attributes:
       sensu:
-        version: "0.20.6-1"
+        version: "0.21.0-2"
         use_embedded_ruby: true
         yum_repo_url: "http://repositories.sensuapp.org"
         redis:
